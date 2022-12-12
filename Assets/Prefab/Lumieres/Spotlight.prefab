@@ -103,8 +103,8 @@ MonoBehaviour:
   isshy: 0
   mask:
     serializedVersion: 2
-    m_Bits: 0
-  OnInRange: 1
+    m_Bits: 2147483647
+  OnInRange: 0
   OffInrange: 0
   range: 0.5
   flicker: {fileID: 0}
