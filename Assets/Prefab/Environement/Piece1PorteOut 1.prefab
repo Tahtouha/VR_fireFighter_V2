@@ -296,6 +296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sol (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3064151277504012434, guid: a8c94c6731313bd42bcdcfebb93aa017, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3064151277504012525, guid: a8c94c6731313bd42bcdcfebb93aa017, type: 3}
       propertyPath: m_RootOrder
       value: 5
