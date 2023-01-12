@@ -17,9 +17,6 @@ public class FireCollisin : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("OtherObject"))
-        {
-            Debug.Log("Collision detected with: " + collision.gameObject.name);
-        }
+        Debug.Log("Collision detected with: " + collision.gameObject.name);
     }
 }
