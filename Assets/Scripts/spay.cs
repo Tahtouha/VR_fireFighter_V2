@@ -27,7 +27,6 @@ public class spay : MonoBehaviour
     {
 
         float triggerValue = pinchAnimationAction.action.ReadValue<float>();
-        Debug.Log(triggerValue);
 
         if (triggerValue == 0)
         {
