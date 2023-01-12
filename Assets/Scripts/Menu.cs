@@ -11,7 +11,7 @@ public class Menu : MonoBehaviour
     private Vector3 position;
     private bool check;
 
-    private void Start()
+    void Start()
     {
         menu = GameObject.FindWithTag("Menu");
         parent = menu.transform.root;
@@ -21,6 +21,7 @@ public class Menu : MonoBehaviour
     private void Update()
     {
         menu.SetActive(menuOn);
+        Debug.Log(menu);
 
         if (Input.GetKeyDown("p"))
         {
@@ -32,7 +33,7 @@ public class Menu : MonoBehaviour
         {
             position = parent.position;
         }
-        
+    
         if (menuOn)
         {
             parent.position = position;
