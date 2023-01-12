@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 5522589931355184389}
   - component: {fileID: 1055884790236363746}
   - component: {fileID: 4106448865463652435}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5220,7 +5220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8714820388544749547}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.073, y: 0.586, z: -0.011}
+  m_LocalPosition: {x: -0.029, y: 0.586, z: -0.011}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5236,7 +5236,7 @@ ParticleSystem:
   m_GameObject: {fileID: 8714820388544749547}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 6
+  simulationSpeed: 9.42
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -5856,7 +5856,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 12.6
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
