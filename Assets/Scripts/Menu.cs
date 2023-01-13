@@ -21,7 +21,6 @@ public class Menu : MonoBehaviour
     private void Update()
     {
         menu.SetActive(menuOn);
-        Debug.Log(menu);
 
         if (Input.GetKeyDown("p"))
         {
