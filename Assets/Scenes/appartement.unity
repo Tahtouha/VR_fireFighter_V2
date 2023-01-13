@@ -541,7 +541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &514307649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,6 +819,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2f6a8d2e598b04eb036a52597454fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pinchAnimationAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Pinch Animation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: f52154e8-81e6-437f-b4a6-b93e9dd8e787
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!135 &563304741
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2784,7 +2796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1694166179606086492, guid: 04ed492823f234646bdeb926e3595c1c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04ed492823f234646bdeb926e3595c1c, type: 3}
@@ -2857,7 +2869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7856939426060805367, guid: 0e0c0ea42a9179a439939b48d788de04, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7858563500711273958, guid: 0e0c0ea42a9179a439939b48d788de04, type: 3}
       propertyPath: m_PresetInfoIsWorld

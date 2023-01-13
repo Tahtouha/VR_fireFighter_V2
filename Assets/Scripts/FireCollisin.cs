@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.InputSystem;
+using System;
 
 public class FireCollisin : MonoBehaviour
 {
+    public InputActionProperty pinchAnimationAction;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +23,11 @@ public class FireCollisin : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
+        float triggerValue = pinchAnimationAction.action.ReadValue<float>();
+        Debug.Log(triggerValue);
+        if (collision.gameObject.name == "Fire Extinguisher" && triggerValue != 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
