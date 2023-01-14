@@ -686,20 +686,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439161622}
-  m_LocalRotation: {x: 0.6368794, y: 0.41454026, z: -0.3352219, w: 0.5569267}
-  m_LocalPosition: {x: 0, y: 0, z: 3.251}
-  m_LocalScale: {x: 0.0005, y: 0.001, z: 0.001}
+  m_LocalRotation: {x: 0.64085644, y: 0.29883623, z: -0.29883623, w: 0.64085644}
+  m_LocalPosition: {x: 0, y: 0, z: 3.068}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 124690869}
   - {fileID: 923392407}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 99.13501, y: -12.640991, z: -76.90201}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 90, y: 50, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.489, y: 1}
-  m_SizeDelta: {x: 702, y: 401.2}
+  m_AnchoredPosition: {x: 3.331, y: 1}
+  m_SizeDelta: {x: 300, y: 401.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &514307648
 GameObject:
@@ -965,7 +965,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &854540912
 GameObject:
@@ -1010,7 +1010,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &886691898
 GameObject:
@@ -1079,7 +1079,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 300}
+  m_SizeDelta: {x: 260, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923392408
 MonoBehaviour:
@@ -1130,13 +1130,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2434,6 +2434,67 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   handAnimator: {fileID: 1181652567}
+--- !u!1001 &1240219489
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6670307133385559018, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_SpotAngle
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.693
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.046
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.501
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559019, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670307133385559021, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
+      propertyPath: m_Name
+      value: jecpalir
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5415e2ae6dd736448d8ad6cdfc0af39, type: 3}
 --- !u!4 &1461195892 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2210789809903021724, guid: fc2f3e454a67aa0439066a049784fa93, type: 3}
@@ -2604,7 +2665,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1531324096
 Rigidbody:
@@ -3052,7 +3113,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1849398697
 MonoBehaviour:
@@ -3502,6 +3563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Structure 01
       objectReference: {fileID: 0}
+    - target: {fileID: 2210789810000316264, guid: fc2f3e454a67aa0439066a049784fa93, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb77271ecd71cbd4599aa533ebf5cc1e, type: 2}
     - target: {fileID: 2210789810156753344, guid: fc2f3e454a67aa0439066a049784fa93, type: 3}
       propertyPath: m_IntensityMultiplier
       value: 0.5

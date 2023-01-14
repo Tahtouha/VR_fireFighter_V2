@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -39,7 +40,7 @@ public class Scénario : MonoBehaviour
     
     private AudioSource alarm;
 
-    private Text todo;
+    private TMP_Text todo;
 
     private bool shenanigan;
 
@@ -56,7 +57,8 @@ public class Scénario : MonoBehaviour
         remi = GameObject.Find("Rémi Mollette");
         magie = magicHint.GetComponent<Light>();
         alarm = GameObject.Find("alarm").GetComponent<AudioSource>();
-        todo = GameObject.Find("TODO").GetComponent<Text>();
+        todo = GameObject.Find("TODO").GetComponent<TMP_Text>();
+        Debug.Log(todo);
         shenanigan = false;
         boom = false;
         ring = phone.GetComponent<AudioSource>();
@@ -136,7 +138,7 @@ public class Scénario : MonoBehaviour
             float _y = magicHint.transform.position.y;
             magicHint.transform.SetPositionAndRotation(new Vector3(phone.transform.position.x -0.2f, _y, phone.transform.position.z -0.2f), magicHint.transform.rotation);
             magie.spotAngle = 20;
-            todo.text="To Do:\n- f̶a̶i̶r̶e̶ ̶c̶u̶i̶r̶e̶ ̶l̶e̶s̶ ̶p̶a̶t̶e̶s̶ \n- M҉e҉t҉t҉r҉e҉ ҉l҉a҉ ҉v҉a҉i҉s҉s҉e҉l҉l҉e҉ ҉d҉a҉n҉s҉ ҉l҉'҉é҉v҉i҉e҉r҉\n- Changer les ampules qui clignottent";
+            todo.text="To Do:\n- f̶a̶i̶r̶e̶ ̶c̶u̶i̶r̶e̶ ̶l̶e̶s̶ ̶p̶a̶t̶e̶s̶ \n- M̶e̶t̶t̶r̶e̶ ̶l̶a̶ ̶v̶a̶i̶s̶s̶e̶l̶l̶e̶ ̶d̶a̶n̶s̶ ̶l̶'̶é̶v̶i̶e̶r̶\n- Changer les ampules qui clignottent";
         }
     }
 
