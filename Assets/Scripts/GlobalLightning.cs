@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 public class GlobalLightning : MonoBehaviour
 {
@@ -12,9 +15,11 @@ public class GlobalLightning : MonoBehaviour
     // Start is called before the first frame update
     private float flickersize = 0.1f;
 
-    private GameObject light1;
-    private GameObject light2;
-    private GameObject spotlight;
+    private Light light1;
+    private Light light2;
+    private Light spotlight;
+    private AudioSource audiol1;
+    private AudioSource audiol2;
     private float range1;
     private float range2;
     private float spotRange;
@@ -27,6 +32,9 @@ public class GlobalLightning : MonoBehaviour
     private IEnumerator coroutine1;
     private IEnumerator coroutine2;
     private IEnumerator coroutineSpot;
+    private IEnumerator coroutine3;
+    private IEnumerator coroutine4;
+    private IEnumerator coroutine5;
     
     private float counter;
     private float counter2;
@@ -46,17 +54,18 @@ public class GlobalLightning : MonoBehaviour
         }*/
 
         //randomLights = Random.Range(0, InsideLights.Length - 1);
-        light1 = GameObject.Find("Point Light");
-        light2 = GameObject.Find("Point Light (1)");
-        spotlight = GameObject.Find("Spot Light");
-        Debug.Log(spotlight);
+        light1 = GameObject.Find("Point Light").GetComponent<Light>();
+        light2 = GameObject.Find("Point Light (1)").GetComponent<Light>();
+        audiol1 = GameObject.Find("Point Light").GetComponent<AudioSource>();
+        audiol2 = GameObject.Find("Point Light (1)").GetComponent<AudioSource>();
+        spotlight = GameObject.Find("Spot Light").GetComponent<Light>();
         range1 = light1.GetComponent<Light>().range;
         range2 = light2.GetComponent<Light>().range;
         spotRange = spotlight.GetComponent<Light>().range;
         spotIntensity = spotlight.GetComponent<Light>().intensity;
-        coroutine1 = Clignotte(light1, range1, 2*Random.value);
-        coroutine2 = Clignotte(light2, range2, 2*Random.value);
-        coroutineSpot = Clignotte(spotlight, spotRange, 10 * Random.value);
+        coroutine1 = Clignotte(light1, range1, audiol1, 2*Random.value);
+        coroutine2 = Clignotte(light2, range2, audiol2, 2*Random.value);
+        coroutineSpot = Clignotte(spotlight, spotRange, null, 10 * Random.value);
         counter = 0;
         counter2 = 0;
         Object[] _audio = GameObject.FindObjectsOfType(typeof(AudioSource));
@@ -72,64 +81,75 @@ public class GlobalLightning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (counter < timer)
-        {
-            counter += Time.deltaTime;
-            coroutine1 = Clignotte(light1, range1, 2*Random.value);
-            StartCoroutine(coroutine1);
-            coroutineSpot = Clignotte(spotlight, spotRange, 10 * Random.value);
-            StartCoroutine(coroutineSpot);
-        }
-        else
-        {
-            counter = 0;
-            StopCoroutine(coroutine1);
-            StopCoroutine(coroutineSpot);
-        }
-        
-        if (counter2 < timer2)
-        {
-            counter2 += Time.deltaTime;
-            coroutine2 = Clignotte(light2, range2, 2*Random.value);
-            StartCoroutine(coroutine2);
-        }
-        else
-        {
-            counter2 = 0;
-            StopCoroutine(coroutine2);
-        }
-        
+        coroutine1 = Clignotte(light1, range1, audiol1,2*Random.value);
+        coroutine2 = Clignotte(light2, range2, audiol2,2*Random.value);
+        coroutineSpot = Clignotte(spotlight, spotRange, null,10 * Random.value);
+        coroutine3 = Sometimes(counter, timer, audiol1, coroutine1);
+        coroutine4 = Sometimes(counter2, timer2, audiol2, coroutine2);
+        coroutine5 = Sometimes(counter, timer, null, coroutineSpot);
+
+        StartCoroutine(coroutine3);
+        StartCoroutine(coroutine4);
+        StartCoroutine(coroutine5);
+
     }
 
-    IEnumerator Clignotte(GameObject light, float range, float time)
+    private void OnApplicationQuit()
+    {
+        StopCoroutine(coroutine3);
+        StopCoroutine(coroutine4);
+        StopCoroutine(coroutine5);
+    }
+
+    IEnumerator Clignotte(Light light, float range, AudioSource audio, float time)
     {
         AudioSource _audioSource = null;
-        Light component = light.GetComponent<Light>();
-        
-        if (light.gameObject.GetComponent<AudioSource>()!= null)
+
+        if (audio!= null)
         {
-            _audioSource = light.gameObject.GetComponent<AudioSource>();
-            _audioSource.mute = false;
+            audio.mute = false;
         }
-        if (light.GetComponent<Light>().range == range)
+        if (light.range == range)
         {
-            component.range = flickersize;
-            if (_audioSource!=null)
+            light.range = flickersize;
+            if (audio!=null)
             {
-                _audioSource.Play();
+                audio.Play();
             }
 
             if (light = spotlight)
             {
-                component.intensity = 0.1f;
+                light.intensity = 0.1f;
             }
             
         }
         else
         {
-            component.range = range;
-            component.intensity = 1f;
+            light.range = range;
+            light.intensity = 1f;
         }
         yield return new WaitForSeconds(time);
     }
+
+    IEnumerator Sometimes(float counterr, float timerr, AudioSource audio, IEnumerator coroutine)
+    {
+        if (counterr < timerr)
+        {
+            counter += Time.deltaTime;
+            StartCoroutine(coroutine);
+        }
+        else
+        {
+            counter = 0;
+            StopCoroutine(coroutine);
+            if (audio!=null)
+            {
+                audio.mute = true;
+            }
+            
+        }
+
+        yield return new WaitForSeconds(50*Time.deltaTime);
+    }
+    
 }
