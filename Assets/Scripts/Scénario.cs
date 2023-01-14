@@ -9,6 +9,10 @@ using UnityEngine.UI;
 public class Scénario : MonoBehaviour
 {
     public GameObject fire;
+
+    public Material black;
+
+    public Material wanted;
     
     private float targetZmax = 6.75f;
 
@@ -36,9 +40,13 @@ public class Scénario : MonoBehaviour
 
     private GameObject remi;
 
+    private Renderer tv;
+
     private Light magie;
     
     private AudioSource alarm;
+
+    private AudioSource muffled;
 
     private TMP_Text todo;
 
@@ -54,13 +62,15 @@ public class Scénario : MonoBehaviour
         phone = GameObject.Find("phone");
         magicHint = GameObject.Find("magicHint");
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+        tv = GameObject.Find("Screen").GetComponent<Renderer>();
+        Debug.Log(tv);
         remi = GameObject.Find("Rémi Mollette");
         magie = magicHint.GetComponent<Light>();
         alarm = GameObject.Find("alarm").GetComponent<AudioSource>();
         todo = GameObject.Find("TODO").GetComponent<TMP_Text>();
-        Debug.Log(todo);
         shenanigan = false;
         boom = false;
+        muffled = GameObject.Find("Screen").GetComponent<AudioSource>();
         ring = phone.GetComponent<AudioSource>();
         ring.mute = true;
         ring.loop = true;
@@ -68,6 +78,7 @@ public class Scénario : MonoBehaviour
         alarm.mute = true;
         coroutine = Flee();
         RenderSettings.fog = false;
+        tv.material = black;
     }
 
     // Update is called once per frame
@@ -139,6 +150,9 @@ public class Scénario : MonoBehaviour
             magicHint.transform.SetPositionAndRotation(new Vector3(phone.transform.position.x -0.2f, _y, phone.transform.position.z -0.2f), magicHint.transform.rotation);
             magie.spotAngle = 20;
             todo.text="To Do:\n- f̶a̶i̶r̶e̶ ̶c̶u̶i̶r̶e̶ ̶l̶e̶s̶ ̶p̶a̶t̶e̶s̶ \n- M̶e̶t̶t̶r̶e̶ ̶l̶a̶ ̶v̶a̶i̶s̶s̶e̶l̶l̶e̶ ̶d̶a̶n̶s̶ ̶l̶'̶é̶v̶i̶e̶r̶\n- Changer les ampules qui clignottent";
+            tv.material = wanted;
+            muffled.mute = false;
+            muffled.Play();
         }
     }
 
