@@ -9,7 +9,7 @@ public class Scénario : MonoBehaviour
 
     private float targetZmin = 6.25f;
 
-    private float targetXmax = -1.1f;
+    private float targetXmax = -1f;
 
     private float targetXmin = -1.7f;
 
@@ -23,6 +23,8 @@ public class Scénario : MonoBehaviour
 
     private GameObject phone;
 
+    private GameObject magicHint;
+
     private AudioSource ring;
 
     private GameObject player;
@@ -31,6 +33,8 @@ public class Scénario : MonoBehaviour
 
     private GameObject[] fires;
 
+    private Light magie;
+    
     private AudioSource alarm;
 
     private bool shenanigan;
@@ -43,9 +47,11 @@ public class Scénario : MonoBehaviour
     {
         props = GameObject.FindGameObjectsWithTag("Props");
         phone = GameObject.Find("phone");
+        magicHint = GameObject.Find("magicHint");
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         remi = GameObject.Find("Rémi Mollette");
         /*fires = GameObject.FindGameObjectsWithTag("fire");*/
+        magie = magicHint.GetComponent<Light>();
         alarm = GameObject.Find("alarm").GetComponent<AudioSource>();
         shenanigan = false;
         boom = false;
@@ -72,7 +78,6 @@ public class Scénario : MonoBehaviour
         }
         else
         {
-            Debug.Log(Vector3.Distance(player.transform.position, phone.transform.position));
             if (isAtDistanceOfPhone(distanceQuiet))
             {
                 
@@ -124,6 +129,9 @@ public class Scénario : MonoBehaviour
             Debug.Log("ici");
             shenanigan = true;
             ring.mute = false;
+            float _y = magicHint.transform.position.y;
+            magicHint.transform.SetPositionAndRotation(new Vector3(phone.transform.position.x -0.2f, _y, phone.transform.position.z -0.2f), magicHint.transform.rotation);
+            magie.spotAngle = 20;
         }
     }
 
