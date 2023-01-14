@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class Scénario : MonoBehaviour
 {
+    public GameObject fire;
+    
     private float targetZmax = 6.75f;
 
     private float targetZmin = 6.25f;
@@ -31,16 +35,16 @@ public class Scénario : MonoBehaviour
 
     private GameObject remi;
 
-    private GameObject[] fires;
-
     private Light magie;
     
     private AudioSource alarm;
 
+    private Text todo;
+
     private bool shenanigan;
 
     private bool boom;
-    
+
     private IEnumerator coroutine;
     // Start is called before the first frame update
     void Start()
@@ -50,23 +54,18 @@ public class Scénario : MonoBehaviour
         magicHint = GameObject.Find("magicHint");
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         remi = GameObject.Find("Rémi Mollette");
-        /*fires = GameObject.FindGameObjectsWithTag("fire");*/
         magie = magicHint.GetComponent<Light>();
         alarm = GameObject.Find("alarm").GetComponent<AudioSource>();
+        todo = GameObject.Find("TODO").GetComponent<Text>();
         shenanigan = false;
         boom = false;
         ring = phone.GetComponent<AudioSource>();
-        Debug.Log("haha" + phone);
         ring.mute = true;
         ring.loop = true;
         alarm.loop = true;
         alarm.mute = true;
         coroutine = Flee();
         RenderSettings.fog = false;
-        foreach (var _fire in fires)
-        {
-            _fire.SetActive(false);
-        }
     }
 
     // Update is called once per frame
@@ -83,6 +82,16 @@ public class Scénario : MonoBehaviour
                 
                 ring.mute = true;
                 alarm.mute = false;
+                if (!boom)
+                {
+                    boom = true;
+                    Instantiate(fire, new Vector3(-1f, 0, 5.5f), Quaternion.identity);
+                    Instantiate(fire, new Vector3(0.3f, 0, 5.5f), Quaternion.identity);
+                    Instantiate(fire, new Vector3(-1f, 0, 4.5f), Quaternion.identity);
+                    Instantiate(fire, new Vector3(-2f, 1.5f, 5.4f), Quaternion.identity);
+                    Instantiate(fire, new Vector3(0.5f, 1.5f, 6.2f), Quaternion.identity);
+                    Instantiate(fire, new Vector3(-1f, 1f, 3.1f), Quaternion.Euler(90, 0, 0));
+                }
                 boom = true;
             }
 
@@ -100,10 +109,6 @@ public class Scénario : MonoBehaviour
         if (boom)
         {
             RenderSettings.fog = true;
-            foreach (var _fire in fires)
-            {
-                _fire.SetActive(true);
-            }
         }
     }
     
@@ -126,12 +131,12 @@ public class Scénario : MonoBehaviour
         
         if (!shenanigan && isInTarget(props[0]) && isInTarget(props[1]) && isInTarget(props[2]))
         {
-            Debug.Log("ici");
             shenanigan = true;
             ring.mute = false;
             float _y = magicHint.transform.position.y;
             magicHint.transform.SetPositionAndRotation(new Vector3(phone.transform.position.x -0.2f, _y, phone.transform.position.z -0.2f), magicHint.transform.rotation);
             magie.spotAngle = 20;
+            todo.text="To Do:\n- f̶a̶i̶r̶e̶ ̶c̶u̶i̶r̶e̶ ̶l̶e̶s̶ ̶p̶a̶t̶e̶s̶ \n- M҉e҉t҉t҉r҉e҉ ҉l҉a҉ ҉v҉a҉i҉s҉s҉e҉l҉l҉e҉ ҉d҉a҉n҉s҉ ҉l҉'҉é҉v҉i҉e҉r҉\n- Changer les ampules qui clignottent";
         }
     }
 
