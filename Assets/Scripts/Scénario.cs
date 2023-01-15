@@ -149,6 +149,7 @@ public class Scénario : MonoBehaviour
             float _y = magicHint.transform.position.y;
             magicHint.transform.SetPositionAndRotation(new Vector3(phone.transform.position.x -0.2f, _y, phone.transform.position.z -0.2f), magicHint.transform.rotation);
             magie.spotAngle = 20;
+            magie.intensity = 1.75f;
             todo.text="To Do:\n- f̶a̶i̶r̶e̶ ̶c̶u̶i̶r̶e̶ ̶l̶e̶s̶ ̶p̶a̶t̶e̶s̶ \n- M̶e̶t̶t̶r̶e̶ ̶l̶a̶ ̶v̶a̶i̶s̶s̶e̶l̶l̶e̶ ̶d̶a̶n̶s̶ ̶l̶'̶é̶v̶i̶e̶r̶\n- Changer les ampules qui clignottent";
             tv.material = wanted;
             muffled.mute = false;
