@@ -8,17 +8,22 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
     public Transform RightAttachTransform;
     public Transform LeftAttachTransform;
 
+    
+
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if(args.interactableObject.transform.CompareTag("left Hand"))
-        {
-            attachTransform = LeftAttachTransform;
-        }
-        else if (args.interactableObject.transform.CompareTag("Right Hand"))
-        {
-            attachTransform = RightAttachTransform;
-        }
+
+        gameObject.GetComponent<SphereCollider>().enabled = true;
+
+        
         base.OnSelectEntered(args);
+    }
+
+    protected override void OnSelectExited(SelectExitEventArgs args)
+    {
+
+        gameObject.GetComponent<SphereCollider>().enabled = false;
+        base.OnSelectExited(args);
     }
 
 }

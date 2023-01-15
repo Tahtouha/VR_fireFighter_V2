@@ -11,9 +11,7 @@ public class pinchForGas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("hello");
-        XRGrabInteractable xRGrab = GetComponent<XRGrabInteractable>();
-        xRGrab.activated.AddListener(FireGas);
+        gameObject.GetComponent<SphereCollider>().enabled = false;
     }
 
     private void FireGas(ActivateEventArgs arg0)

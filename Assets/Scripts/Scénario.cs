@@ -13,7 +13,7 @@ public class Scénario : MonoBehaviour
     public Material black;
 
     public Material wanted;
-    
+
     private float targetZmax = 6.75f;
 
     private float targetZmin = 6.25f;
@@ -43,7 +43,7 @@ public class Scénario : MonoBehaviour
     private Renderer tv;
 
     private Light magie;
-    
+
     private AudioSource alarm;
 
     private AudioSource muffled;
@@ -72,6 +72,7 @@ public class Scénario : MonoBehaviour
         boom = false;
         muffled = GameObject.Find("Screen").GetComponent<AudioSource>();
         ring = phone.GetComponent<AudioSource>();
+        //Debug.Log("haha" + phone);
         ring.mute = true;
         ring.loop = true;
         alarm.loop = true;
@@ -86,13 +87,14 @@ public class Scénario : MonoBehaviour
     {
         if (!shenanigan)
         {
-          doDishes();  
+          doDishes();
         }
         else
         {
+            //Debug.Log(Vector3.Distance(player.transform.position, phone.transform.position));
             if (isAtDistanceOfPhone(distanceQuiet))
             {
-                
+
                 ring.mute = true;
                 alarm.mute = false;
                 if (!boom)
@@ -124,7 +126,7 @@ public class Scénario : MonoBehaviour
             RenderSettings.fog = true;
         }
     }
-    
+
     bool isInTarget(GameObject prop)
     {
         Vector3 _pose = prop.transform.position;
@@ -141,9 +143,10 @@ public class Scénario : MonoBehaviour
 
     void doDishes()
     {
-        
+
         if (!shenanigan && isInTarget(props[0]) && isInTarget(props[1]) && isInTarget(props[2]))
         {
+            //Debug.Log("ici");
             shenanigan = true;
             ring.mute = false;
             float _y = magicHint.transform.position.y;
@@ -171,7 +174,7 @@ public class Scénario : MonoBehaviour
             return false;
         }
     }
-    
+
     IEnumerator Flee()
     {
         if (remi.transform.position.z > -9f)
@@ -182,4 +185,3 @@ public class Scénario : MonoBehaviour
     }
 
 }
-
