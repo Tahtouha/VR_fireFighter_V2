@@ -11,7 +11,7 @@ public class pinchForGas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<SphereCollider>().enabled = false;
+        //gameObject.GetComponent<SphereCollider>().enabled = false;
     }
 
     private void FireGas(ActivateEventArgs arg0)

@@ -14705,6 +14705,7 @@ GameObject:
   - component: {fileID: 4881815268774013341}
   - component: {fileID: 4881815268784000053}
   - component: {fileID: 4881815268783951937}
+  - component: {fileID: 1142080127044688910}
   - component: {fileID: 4881815268780855545}
   m_Layer: 8
   m_Name: fire
@@ -14770,6 +14771,30 @@ MonoBehaviour:
   IntensityMaxRange:
     Minimum: 0
     Maximum: 8
+--- !u!114 &1142080127044688910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881815268774354443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2f6a8d2e598b04eb036a52597454fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinchAnimationAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Pinch Animation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: fdc8ba41-614e-48c5-a79d-a3dad2fe82b4
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!135 &4881815268780855545
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14781,5 +14806,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
-  m_Center: {x: 0, y: -0.3, z: 0}
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.03, z: 0}

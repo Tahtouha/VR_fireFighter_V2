@@ -23,10 +23,13 @@ public class FireCollisin : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
+
         float triggerValue = pinchAnimationAction.action.ReadValue<float>();
         Debug.Log(triggerValue);
         if (collision.gameObject.name == "Fire Extinguisher" && triggerValue != 0)
         {
+            Debug.Log("Fire GONE!!!");
             Destroy(gameObject);
         }
     }
