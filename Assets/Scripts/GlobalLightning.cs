@@ -13,7 +13,7 @@ public class GlobalLightning : MonoBehaviour
 
     private float[] LightsRanges;
     // Start is called before the first frame update
-    private float flickersize = 0.1f;
+    private float flickersize = 0.2f;
 
     private Light light1;
     private Light light2;
@@ -69,13 +69,7 @@ public class GlobalLightning : MonoBehaviour
         counter = 0;
         counter2 = 0;
         Object[] _audio = GameObject.FindObjectsOfType(typeof(AudioSource));
-        /*
-        foreach (var son in _audio)
-        {
-            Debug.Log(son.GameObject().transform.parent.gameObject.name);
-        }
-        */
-        
+
     }
 
     // Update is called once per frame
@@ -149,7 +143,7 @@ public class GlobalLightning : MonoBehaviour
             
         }
 
-        yield return new WaitForSeconds(50*Time.deltaTime);
+        yield return new WaitForSeconds(100*Time.deltaTime);
     }
     
 }

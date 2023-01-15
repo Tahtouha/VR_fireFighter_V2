@@ -63,7 +63,6 @@ public class Scénario : MonoBehaviour
         magicHint = GameObject.Find("magicHint");
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         tv = GameObject.Find("Screen").GetComponent<Renderer>();
-        Debug.Log(tv);
         remi = GameObject.Find("Rémi Mollette");
         magie = magicHint.GetComponent<Light>();
         alarm = GameObject.Find("alarm").GetComponent<AudioSource>();
@@ -72,7 +71,6 @@ public class Scénario : MonoBehaviour
         boom = false;
         muffled = GameObject.Find("Screen").GetComponent<AudioSource>();
         ring = phone.GetComponent<AudioSource>();
-        //Debug.Log("haha" + phone);
         ring.mute = true;
         ring.loop = true;
         alarm.loop = true;
@@ -91,7 +89,6 @@ public class Scénario : MonoBehaviour
         }
         else
         {
-            //Debug.Log(Vector3.Distance(player.transform.position, phone.transform.position));
             if (isAtDistanceOfPhone(distanceQuiet))
             {
 
@@ -146,7 +143,7 @@ public class Scénario : MonoBehaviour
 
         if (!shenanigan && isInTarget(props[0]) && isInTarget(props[1]) && isInTarget(props[2]))
         {
-            //Debug.Log("ici");
+
             shenanigan = true;
             ring.mute = false;
             float _y = magicHint.transform.position.y;
@@ -179,7 +176,7 @@ public class Scénario : MonoBehaviour
     {
         if (remi.transform.position.z > -9f)
         {
-            remi.transform.Translate(0.015f,0,0);
+            remi.transform.Translate(0.02f,0,0);
         }
         yield return new WaitForSeconds(Time.deltaTime);
     }
