@@ -76,6 +76,7 @@ public class Scénario : MonoBehaviour
         props = GameObject.FindGameObjectsWithTag("Props");
         phone = GameObject.Find("phone");
         extincteur = GameObject.Find("Fire Extinguisher");
+        Debug.Log(extincteur);
         magicHint = GameObject.Find("magicHint");
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         tv = GameObject.Find("Screen").GetComponent<Renderer>();
@@ -143,7 +144,7 @@ public class Scénario : MonoBehaviour
                         Tryout.Instance.getAllSound();
                     }
                     float _y = magicHint.transform.position.y;
-                    magicHint.transform.SetPositionAndRotation(new Vector3(extincteur.transform.position.x -0.2f, _y, extincteur.transform.position.z -0.2f), Quaternion.Euler(0,0,0));
+                    magicHint.transform.SetPositionAndRotation(new Vector3(extincteur.transform.position.x -0.2f, _y, extincteur.transform.position.z -0.2f), magicHint.transform.rotation);
                     magie.spotAngle = 20;
                     magie.intensity = 1.75f;
                 }
