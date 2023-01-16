@@ -75,6 +75,7 @@ public class Scénario : MonoBehaviour
         ring.loop = true;
         alarm.loop = true;
         alarm.mute = true;
+        muffled.mute = true;
         coroutine = Flee();
         RenderSettings.fog = false;
         tv.material = black;
