@@ -14703,9 +14703,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4881815268774013341}
+  - component: {fileID: 7602662091186851416}
   - component: {fileID: 4881815268784000053}
   - component: {fileID: 4881815268783951937}
   - component: {fileID: 1142080127044688910}
+  - component: {fileID: 1715559502879310276}
+  - component: {fileID: 5352626778939681755}
   - component: {fileID: 4881815268780855545}
   m_Layer: 8
   m_Name: fire
@@ -14734,6 +14737,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7602662091186851416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881815268774354443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d15a95749bc3b438820738274762e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireSource: {fileID: 4881815268770264951}
+  FireParticleSystem: {fileID: 4881815268792390579}
+  SmokeParticleSystem: {fileID: 4881815268792336723}
+  FireStartingTime: 2
+  FireLife: 100
+  MaxFireLife: 100
+  RecoveryRate: 0
+  ExtinguishRate: 100
+  PCCupdataTime: 1
+  PCCtoExtinguishRateRatio: 1
 --- !u!114 &4881815268784000053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14778,7 +14803,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4881815268774354443}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e2f6a8d2e598b04eb036a52597454fc, type: 3}
   m_Name: 
@@ -14795,6 +14820,37 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &1715559502879310276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881815268774354443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51c4f935ee3a864ba57bf4da04da469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5352626778939681755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4881815268774354443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c0e836d67bd394c83101cdb7e0e039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PCCupdataTime: 1
+  PCCtoExtinguishRateRatio: 1
+  FireStartingTime: 2
+  ExtinguishRate: 20
+  FireParticleSystem: {fileID: 4881815268792390579}
+  SmokeParticleSystem: {fileID: 4881815268792336723}
+  FireSource: {fileID: 4881815268770264951}
 --- !u!135 &4881815268780855545
 SphereCollider:
   m_ObjectHideFlags: 0

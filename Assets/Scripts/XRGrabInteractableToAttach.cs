@@ -19,7 +19,7 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
 
-        //gameObject.GetComponent<SphereCollider>().enabled = true;
+        gameObject.GetComponent<SphereCollider>().enabled = true;
 
         attachTransform = RightAttachTransform;
         //child.GetComponent<SphereCollider>().enabled = true;
@@ -30,7 +30,7 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
 
-        //gameObject.GetComponent<SphereCollider>().enabled = false;
+        gameObject.GetComponent<SphereCollider>().enabled = false;
         //child.GetComponent<SphereCollider>().enabled = false;
         base.OnSelectExited(args);
     }
