@@ -14,6 +14,10 @@ public class Scénario : MonoBehaviour
 
     public Material wanted;
 
+    public Material tuto;
+
+    public Material part;
+
     private float targetZmax = 6.8f;
 
     private float targetZmin = 6.2f;
@@ -59,6 +63,8 @@ public class Scénario : MonoBehaviour
     private bool boom;
 
     private IEnumerator coroutine;
+
+    private IEnumerator tvtuto;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +90,7 @@ public class Scénario : MonoBehaviour
         muffled.mute = true;
         muffled.playOnAwake = true;
         coroutine = Flee();
+        tvtuto = TVTuto();
         RenderSettings.fog = false;
         tv.material = black;
         magie.spotAngle = 50f;
@@ -94,7 +101,9 @@ public class Scénario : MonoBehaviour
     {
         if (!shenanigan)
         {
-          doDishes();
+            tvtuto = TVTuto();
+            StartCoroutine(tvtuto);
+            doDishes();
         }
         else
         {
@@ -171,6 +180,7 @@ public class Scénario : MonoBehaviour
             todo.text="To Do:\n- f̶a̶i̶r̶e̶ ̶c̶u̶i̶r̶e̶ ̶l̶e̶s̶ ̶p̶a̶t̶e̶s̶ \n- M̶e̶t̶t̶r̶e̶ ̶l̶a̶ ̶v̶a̶i̶s̶s̶e̶l̶l̶e̶ ̶d̶a̶n̶s̶ ̶l̶'̶é̶v̶i̶e̶r̶\n- Changer les ampules qui clignottent";
             tv.material = wanted;
             muffled.mute = false;
+            StopCoroutine(tvtuto);
         }
     }
 
@@ -196,6 +206,19 @@ public class Scénario : MonoBehaviour
             remi.transform.Translate(0.09f,0,0);
         }
         yield return new WaitForSeconds(Time.deltaTime);
+    }
+
+    IEnumerator TVTuto()
+    {
+        if (tv.material == tuto)
+        {
+            tv.material = part;
+        }
+        else
+        {
+            tv.material = tuto;
+        }
+        yield return new WaitForSeconds(10*Time.deltaTime);
     }
 
 }
