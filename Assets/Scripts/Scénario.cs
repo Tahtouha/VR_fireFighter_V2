@@ -26,7 +26,7 @@ public class Scénario : MonoBehaviour
 
     private float distanceQuiet = 1f;
 
-    private float distanceRemiOut = 3f;
+    private float distanceRemiOut = 8f;
 
     private GameObject[] props;
 
@@ -176,7 +176,7 @@ public class Scénario : MonoBehaviour
     {
         if (remi.transform.position.z > -9f)
         {
-            remi.transform.Translate(0.02f,0,0);
+            remi.transform.Translate(0.05f,0,0);
         }
         yield return new WaitForSeconds(Time.deltaTime);
     }
