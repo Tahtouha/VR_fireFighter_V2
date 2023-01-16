@@ -1788,6 +1788,8 @@ MonoBehaviour:
   fire: {fileID: 4881815268774354443, guid: 3733339700534c94d8944e9cb1b79389, type: 3}
   black: {fileID: 2100000, guid: 4cd790ac0d37bdc46970f6688c6b5070, type: 2}
   wanted: {fileID: 2100000, guid: 51a5b4f0aa90ad74a91c3f4dd4df5800, type: 2}
+  tuto: {fileID: 2100000, guid: bebc94f787cdee844acc8967e6803747, type: 2}
+  part: {fileID: 2100000, guid: dea9c879dc9c4694db82ce3685cc66f6, type: 2}
 --- !u!4 &854540914
 Transform:
   m_ObjectHideFlags: 0

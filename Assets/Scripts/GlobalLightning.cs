@@ -13,7 +13,7 @@ public class GlobalLightning : MonoBehaviour
 
     private float[] LightsRanges;
     // Start is called before the first frame update
-    private float flickersize = 0.2f;
+    private float flickersize = 13f;
 
     private Light light1;
     private Light light2;
@@ -41,8 +41,8 @@ public class GlobalLightning : MonoBehaviour
     void Start()
     {
         Object[] lights = GameObject.FindObjectsOfType(typeof(Light));
-        timer = 1.5f;
-        timer2 = 1.8f;
+        timer = 8f;
+        timer2 = 10f;
         
         /*if (lights.Length != 0)
         {
@@ -63,9 +63,9 @@ public class GlobalLightning : MonoBehaviour
         range2 = light2.GetComponent<Light>().range;
         spotRange = spotlight.GetComponent<Light>().range;
         spotIntensity = spotlight.GetComponent<Light>().intensity;
-        coroutine1 = Clignotte(light1, range1, audiol1, 2*Random.value);
-        coroutine2 = Clignotte(light2, range2, audiol2, 2*Random.value);
-        coroutineSpot = Clignotte(spotlight, spotRange, null, 10 * Random.value);
+        coroutine1 = Clignotte(light1, range1, audiol1, Random.Range(0.5f, 10));
+        coroutine2 = Clignotte(light2, range2, audiol2, Random.Range(0.5f, 10));
+        coroutineSpot = Clignotte(spotlight, spotRange, null, Random.Range(0.5f, 10));
         counter = 0;
         counter2 = 0;
         Object[] _audio = GameObject.FindObjectsOfType(typeof(AudioSource));
@@ -75,23 +75,19 @@ public class GlobalLightning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coroutine1 = Clignotte(light1, range1, audiol1,2*Random.value);
-        coroutine2 = Clignotte(light2, range2, audiol2,2*Random.value);
-        coroutineSpot = Clignotte(spotlight, spotRange, null,10 * Random.value);
-        coroutine3 = Sometimes(counter, timer, audiol1, coroutine1);
-        coroutine4 = Sometimes(counter2, timer2, audiol2, coroutine2);
+        coroutine1 = Clignotte(light1, range1, audiol1,Random.Range(0.5f, 10));
+        coroutine2 = Clignotte(light2, range2, audiol2,Random.Range(0.5f, 10));
+        coroutineSpot = Clignotte(spotlight, spotRange, null,Random.Range(0.5f, 10));
         coroutine5 = Sometimes(counter, timer, null, coroutineSpot);
 
-        StartCoroutine(coroutine3);
-        StartCoroutine(coroutine4);
+        StartCoroutine(Sometimes(counter, timer, audiol1, coroutine1));
+        StartCoroutine(Sometimes(counter2, timer2, audiol2, coroutine2));
         StartCoroutine(coroutine5);
 
     }
 
     private void OnApplicationQuit()
     {
-        StopCoroutine(coroutine3);
-        StopCoroutine(coroutine4);
         StopCoroutine(coroutine5);
     }
 
@@ -127,23 +123,9 @@ public class GlobalLightning : MonoBehaviour
 
     IEnumerator Sometimes(float counterr, float timerr, AudioSource audio, IEnumerator coroutine)
     {
-        if (counterr < timerr)
-        {
-            counter += Time.deltaTime;
-            StartCoroutine(coroutine);
-        }
-        else
-        {
-            counter = 0;
-            StopCoroutine(coroutine);
-            if (audio!=null)
-            {
-                audio.mute = true;
-            }
-            
-        }
-
-        yield return new WaitForSeconds(100*Time.deltaTime);
+        
+        StartCoroutine(coroutine);
+        yield return new WaitForSeconds(25);
     }
     
 }
