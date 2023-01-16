@@ -8,6 +8,8 @@ TagManager:
   - Menu
   - Left Hand
   - Right Hand
+  - Props
+  - Fire
   layers:
   - Default
   - TransparentFX
