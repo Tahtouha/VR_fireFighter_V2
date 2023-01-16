@@ -1304,7 +1304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514307648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.16, y: 0.36, z: 1.787}
+  m_LocalPosition: {x: -1.23, y: 0.36, z: 0.909}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2752,6 +2752,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 935990485985102589, guid: 1214b5d58779b50448aef94a3f23e076, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 935990485985102590, guid: 1214b5d58779b50448aef94a3f23e076, type: 3}
       propertyPath: m_Name
       value: Fire Extinguisher
@@ -2989,15 +2993,15 @@ MonoBehaviour:
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
-  m_VelocityDamping: 1
+  m_MovementType: 0
+  m_VelocityDamping: 0.51
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
   m_SmoothPosition: 0
-  m_SmoothPositionAmount: 5
-  m_TightenPosition: 0.5
+  m_SmoothPositionAmount: 20
+  m_TightenPosition: 1
   m_TrackRotation: 1
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 5
@@ -3042,6 +3046,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.370405
   m_Center: {x: 0.39, y: 0.37033722, z: 0}
+--- !u!65 &1093069162
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093069134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4004026, y: 0.74081, z: 0.2040613}
+  m_Center: {x: 0, y: 0.37033722, z: 0}
 --- !u!1001 &1178592632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5000,6 +5017,10 @@ PrefabInstance:
     - target: {fileID: 2210789808515332137, guid: fc2f3e454a67aa0439066a049784fa93, type: 3}
       propertyPath: m_Intensity
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210789808695283290, guid: fc2f3e454a67aa0439066a049784fa93, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.09
       objectReference: {fileID: 0}
     - target: {fileID: 2210789808706378575, guid: fc2f3e454a67aa0439066a049784fa93, type: 3}
       propertyPath: m_Range
