@@ -17,7 +17,9 @@ public class ParticleCollision : MonoBehaviour
 	
 	private void OnParticleCollision (GameObject other)
 		{
-			//用于存放被碰撞对象firecontrol的变量
+
+		Debug.Log("APRTICLE HIT AHHHHH");
+			/*//用于存放被碰撞对象firecontrol的变量
 			FireControl firehit = null;
 			//用于存放触发一次事件时与火焰对象碰撞的粒子数量变量
 			int hitCount = 0;
@@ -37,7 +39,7 @@ public class ParticleCollision : MonoBehaviour
 			if(firehit !=null )
 			{
 				firehit.HitByExtinguishParticleCollision(hitCount);
-			}
+			}*/
 		}
 
     // Update is called once per frame

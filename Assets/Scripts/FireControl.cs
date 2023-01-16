@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class FireControl : MonoBehaviour
 {
-	//一定时间间隔内粒子碰撞计数
-	int ParticleCollisionCount;
-	//更新粒子碰撞计数时间间隔
-	[SerializeField] float PCCupdataTime = 1.0f;
-	//粒子碰撞计数转换为熄灭系数的转换系数
-	[SerializeField] float PCCtoExtinguishRateRatio = 1.0f;
-	//火焰燃烧 熄灭需要时间
-	[SerializeField] float FireStartingTime = 2.0f;
+    [SerializeField] AudioSource FireSource;
+    //火焰粒子效果
+    [SerializeField] ParticleSystem FireParticleSystem;
+    //烟雾粒子效果
+    [SerializeField] ParticleSystem SmokeParticleSystem;
+    //火焰燃烧 熄灭需要时间
+    [SerializeField] float FireStartingTime = 2.0f;
+    //火焰生命值
+    [SerializeField] float FireLife = 100f;
+    //生命值上限
+    [SerializeField] float MaxFireLife = 100f;
+    //火焰回复系数
+    [SerializeField] float RecoveryRate = 40f;
+    //火焰熄灭系数
+    [SerializeField] float ExtinguishRate = 20.0f;
+    //火焰是否熄灭
+    protected bool isExtinguish;
 
-	[SerializeField] float ExtinguishRate  = 20.0f;
-	//火焰粒子效果
-	[SerializeField] ParticleSystem FireParticleSystem;
-	//烟雾粒子效果
-	[SerializeField] ParticleSystem SmokeParticleSystem;
-	//燃烧音效
-	[SerializeField] AudioSource FireSource;
-
-	protected bool isExtinguish;
-	//当发生碰撞时候调用的函数
-	public void HitByExtinguishParticleCollision(int points)
+    //一定时间间隔内粒子碰撞计数
+    int ParticleCollisionCount;
+    //更新粒子碰撞计数时间间隔
+    [SerializeField] float PCCupdataTime = 1.0f;
+    //粒子碰撞计数转换为熄灭系数的转换系数
+    [SerializeField] float PCCtoExtinguishRateRatio = 1.0f;
+    //当发生碰撞时候调用的函数
+    public void HitByExtinguishParticleCollision(int points)
 		{
 			//粒子碰撞计数			
 			ParticleCollisionCount +=points;
@@ -64,9 +70,21 @@ public class FireControl : MonoBehaviour
 			isExtinguish = false;
 		}
 
+    IEnumerator Extinguish()
+    {
+        SmokeParticleSystem.Stop();
+        FireSource.Stop();
+        SmokeParticleSystem.time = 0;
+        SmokeParticleSystem.Play();
+
+        yield return new WaitForSeconds(FireStartingTime);
+        SmokeParticleSystem.Stop();
+        FireParticleSystem.transform.localScale = Vector3.one;
+    }
+
 
     // Start is called before the first frame update
-    	void Start()
+    void Start()
     		{
         			isExtinguish = true;
 			FireParticleSystem.Stop();
@@ -80,6 +98,24 @@ public class FireControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //每一帧更新火势
+        //如果没有熄灭，并且生命值没有达到最大或熄灭系数不为0
+        if (!isExtinguish && (FireLife < MaxFireLife || ExtinguishRate != 0f))
+        {
+            //根据系数计算当前生命 calculer current
+            FireLife += (RecoveryRate - ExtinguishRate) * Time.deltaTime;
+            if (FireLife <= 0)
+            {
+                FireLife = 0f;
+                isExtinguish = true;
+                StartCoroutine(Extinguish());
+            }
+            //如果生命值打到上限，则维持
+            if (FireLife >= MaxFireLife)
+            {
+                FireLife = MaxFireLife;
+            }
+            FireParticleSystem.transform.localScale = Vector3.one * FireLife / MaxFireLife;
+        }
     }
 }
