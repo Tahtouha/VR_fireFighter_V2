@@ -14837,7 +14837,7 @@ MonoBehaviour:
   FireStartingTime: 2
   FireLife: 100
   MaxFireLife: 100
-  RecoveryRate: 0
+  RecoveryRate: 30
   ExtinguishRate: 20
   PCCupdataTime: 1
   PCCtoExtinguishRateRatio: 1
