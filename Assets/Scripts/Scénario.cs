@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Scénario : MonoBehaviour
@@ -70,6 +72,8 @@ public class Scénario : MonoBehaviour
 
     private bool testSoundOff;
 
+    private List<GameObject> fires;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,12 +137,12 @@ public class Scénario : MonoBehaviour
                 if (!boom)
                 {
                     boom = true;
-                    Instantiate(fire, new Vector3(-1f, 0, 5.5f), Quaternion.identity);
-                    Instantiate(fire, new Vector3(0.3f, 0, 5.5f), Quaternion.identity);
-                    Instantiate(fire, new Vector3(-1f, 0, 4.5f), Quaternion.identity);
-                    Instantiate(fire, new Vector3(-2f, 1.5f, 5.4f), Quaternion.identity);
-                    Instantiate(fire, new Vector3(0.5f, 1.5f, 6.2f), Quaternion.identity);
-                    Instantiate(fire, new Vector3(-1f, 1f, 3.1f), Quaternion.Euler(90, 0, 0));
+                    fires.Add(Instantiate(fire, new Vector3(-1f, 0, 5.5f), Quaternion.identity));
+                    fires.Add(Instantiate(fire, new Vector3(0.3f, 0, 5.5f), Quaternion.identity));
+                    fires.Add(Instantiate(fire, new Vector3(-1f, 0, 4.5f), Quaternion.identity));
+                    fires.Add(Instantiate(fire, new Vector3(-2f, 1.5f, 5.4f), Quaternion.identity));
+                    fires.Add( Instantiate(fire, new Vector3(0.5f, 1.5f, 6.2f), Quaternion.identity));
+                    fires.Add(Instantiate(fire, new Vector3(-1f, 1f, 3.1f), Quaternion.Euler(90, 0, 0)));
                     if (testSoundOff)
                     {
                         Tryout.Instance.getAllSound();
@@ -165,10 +169,16 @@ public class Scénario : MonoBehaviour
         if (boom)
         {
             RenderSettings.fog = true;
+            if (fires.Count == 0)
+            {
+                SceneManager.LoadScene("MenuVR");
+            }
+            
             if (extincteur.transform.position.x != magicHint.transform.position.x)
             {
                 magicHint.SetActive(false);
             }
+            fires.RemoveAll(x => x == null);
         }
     }
 
