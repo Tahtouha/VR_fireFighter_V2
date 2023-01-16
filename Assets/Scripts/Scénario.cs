@@ -68,6 +68,8 @@ public class Scénario : MonoBehaviour
 
     private float counter;
 
+    private bool testSoundOff;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +99,7 @@ public class Scénario : MonoBehaviour
         tv.material = tuto;
         magie.spotAngle = 50f;
         counter = 0f;
+        testSoundOff = Tryout.Instance.getAudioOff();
     }
 
     // Update is called once per frame
@@ -135,6 +138,10 @@ public class Scénario : MonoBehaviour
                     Instantiate(fire, new Vector3(-2f, 1.5f, 5.4f), Quaternion.identity);
                     Instantiate(fire, new Vector3(0.5f, 1.5f, 6.2f), Quaternion.identity);
                     Instantiate(fire, new Vector3(-1f, 1f, 3.1f), Quaternion.Euler(90, 0, 0));
+                    if (testSoundOff)
+                    {
+                        Tryout.Instance.getAllSound();
+                    }
                     float _y = magicHint.transform.position.y;
                     magicHint.transform.SetPositionAndRotation(new Vector3(extincteur.transform.position.x -0.2f, _y, extincteur.transform.position.z -0.2f), Quaternion.Euler(0,0,0));
                     magie.spotAngle = 20;
