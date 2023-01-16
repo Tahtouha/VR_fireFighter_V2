@@ -18,10 +18,17 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
+        if(gameObject.name == "Fire Extinguisher")
+        {
+            gameObject.GetComponent<SphereCollider>().enabled = true;
+            attachTransform = RightAttachTransform;
+        }
+        else
+        {
+            attachTransform = RightAttachTransform;
+        }
 
-        gameObject.GetComponent<SphereCollider>().enabled = true;
-
-        attachTransform = RightAttachTransform;
+        
         //child.GetComponent<SphereCollider>().enabled = true;
 
         base.OnSelectEntered(args);
@@ -29,8 +36,16 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
+        if (gameObject.name == "Fire Extinguisher")
+        {
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+            attachTransform = RightAttachTransform;
+        }
 
-        gameObject.GetComponent<SphereCollider>().enabled = false;
+        else
+        {
+            attachTransform = RightAttachTransform;
+        }
         //child.GetComponent<SphereCollider>().enabled = false;
         base.OnSelectExited(args);
     }
