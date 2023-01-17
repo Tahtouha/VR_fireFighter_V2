@@ -18,7 +18,9 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        if(gameObject.name == "Fire Extinguisher")
+        int layerIndex = LayerMask.NameToLayer("Spray");
+        gameObject.layer = layerIndex;
+        if (gameObject.name == "Fire Extinguisher")
         {
             gameObject.GetComponent<SphereCollider>().enabled = true;
             attachTransform = RightAttachTransform;
@@ -26,9 +28,10 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
         else
         {
             attachTransform = RightAttachTransform;
+
         }
 
-        
+
         //child.GetComponent<SphereCollider>().enabled = true;
 
         base.OnSelectEntered(args);
@@ -36,6 +39,9 @@ public class XRGrabInteractableToAttach : XRGrabInteractable
 
     protected override void OnSelectExited(SelectExitEventArgs args)
     {
+        int layerIndex = LayerMask.NameToLayer("Interactable");
+        gameObject.layer = layerIndex;
+
         if (gameObject.name == "Fire Extinguisher")
         {
             gameObject.GetComponent<SphereCollider>().enabled = false;
