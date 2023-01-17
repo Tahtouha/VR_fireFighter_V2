@@ -111,7 +111,7 @@ public class Scénario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!shenanigan && !boom)
+        if (!shenanigan)
         {
             magicHint.SetActive(true);
             if (counter < timer * Time.deltaTime)
