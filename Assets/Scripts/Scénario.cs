@@ -111,7 +111,7 @@ public class Scénario : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!shenanigan)
+        if (!shenanigan && !boom)
         {
             magicHint.SetActive(true);
             if (counter < timer * Time.deltaTime)
@@ -132,6 +132,7 @@ public class Scénario : MonoBehaviour
         else
         {
             magicHint.SetActive(true);
+            tv.material = wanted;
             if (isAtDistanceOfPhone(distanceQuiet))
             {
 
