@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: HomeAlone5
   productName: VR_fireFighter_V2
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -188,6 +188,10 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 2056216117090009258, guid: fa5f5ef4fa0fb21469c1bf147b9a8a9e, type: 2}
   - {fileID: 1966897292842559549, guid: 8c9bd7eacc6237d48aef11cfdfff8362, type: 2}
   - {fileID: 0}
@@ -210,7 +214,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DefaultCompany.VR_fireFighter_V2
+    Android: com.HomeAlone5.VR_fireFighter_V2
     Standalone: com.DefaultCompany.VR-fireFighter-V2
   buildNumber:
     Standalone: 0
