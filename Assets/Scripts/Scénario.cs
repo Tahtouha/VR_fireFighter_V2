@@ -105,6 +105,7 @@ public class Scénario : MonoBehaviour
         magie.spotAngle = 50f;
         counter = 0f;
         testSoundOff = Tryout.Instance.getAudioOff();
+        fires = new List<GameObject>();
     }
 
     // Update is called once per frame
