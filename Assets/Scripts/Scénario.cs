@@ -30,7 +30,7 @@ public class Scénario : MonoBehaviour
 
     private float targetYmax = 1.5f;
 
-    private float distanceQuiet = 1f;
+    private float distanceQuiet = 5f;
 
     private float distanceRemiOut = 5f;
 
@@ -113,6 +113,7 @@ public class Scénario : MonoBehaviour
     {
         if (!shenanigan)
         {
+            magicHint.SetActive(true);
             if (counter < timer * Time.deltaTime)
             {
                 counter++;
@@ -130,6 +131,7 @@ public class Scénario : MonoBehaviour
         }
         else
         {
+            magicHint.SetActive(true);
             if (isAtDistanceOfPhone(distanceQuiet))
             {
 
@@ -149,7 +151,7 @@ public class Scénario : MonoBehaviour
                         Tryout.Instance.getAllSound();
                     }
                     float _y = magicHint.transform.position.y;
-                    magicHint.transform.SetPositionAndRotation(new Vector3(extincteur.transform.position.x -0.2f, _y, extincteur.transform.position.z -0.2f), magicHint.transform.rotation);
+                    magicHint.transform.SetPositionAndRotation(new Vector3(extincteur.transform.position.x , _y, extincteur.transform.position.z ), magicHint.transform.rotation);
                     magie.spotAngle = 20;
                     magie.intensity = 1.75f;
                 }
@@ -175,10 +177,6 @@ public class Scénario : MonoBehaviour
                 SceneManager.LoadScene("MenuVR");
             }
             
-            if (extincteur.transform.position.x != magicHint.transform.position.x)
-            {
-                magicHint.SetActive(false);
-            }
             fires.RemoveAll(x => x == null);
         }
     }
