@@ -30,9 +30,9 @@ public class Scénario : MonoBehaviour
 
     private float targetYmax = 1.5f;
 
-    private float distanceQuiet = 5f;
+    private float distanceQuiet = 1f;
 
-    private float distanceRemiOut = 5f;
+    private float distanceRemiOut = 4.5f;
 
     private GameObject[] props;
 
