@@ -13,7 +13,7 @@ public class GlobalLightning : MonoBehaviour
 
     private float[] LightsRanges;
     // Start is called before the first frame update
-    private float flickersize = 13f;
+    private float flickersize = 11.5f;
 
     private Light light1;
     private Light light2;

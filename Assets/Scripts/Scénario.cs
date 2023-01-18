@@ -66,7 +66,7 @@ public class Scénario : MonoBehaviour
 
     private IEnumerator coroutine;
 
-    private float timer = 50000f;
+    private float timer = 30000f;
 
     private float counter;
 
@@ -209,7 +209,7 @@ public class Scénario : MonoBehaviour
             magie.spotAngle = 20;
             magie.intensity = 1.75f;
             wow.transform.localScale = new Vector3(0.25f, 0.25f, 1);
-            todo.text="To Do:\n- f̶a̶i̶r̶e̶ ̶c̶u̶i̶r̶e̶ ̶l̶e̶s̶ ̶p̶a̶t̶e̶s̶ \n- M̶e̶t̶t̶r̶e̶ ̶l̶a̶ ̶v̶a̶i̶s̶s̶e̶l̶l̶e̶ ̶d̶a̶n̶s̶ ̶l̶'̶é̶v̶i̶e̶r̶\n- Changer les ampules qui clignottent";
+            todo.text="To Do:\n- f̶a̶i̶r̶e̶ ̶c̶u̶i̶r̶e̶ ̶l̶e̶s̶ ̶p̶a̶t̶e̶s̶ \n- M̶e̶t̶t̶r̶e̶ ̶l̶a̶ ̶v̶a̶i̶s̶s̶e̶l̶l̶e̶ ̶d̶a̶n̶s̶ ̶l̶'̶é̶v̶i̶e̶r̶\n- Appeler l'électricien pour réparer les clignottements";
             tv.material = wanted;
             muffled.mute = false;
         }
