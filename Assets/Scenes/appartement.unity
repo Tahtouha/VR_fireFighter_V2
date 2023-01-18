@@ -1956,7 +1956,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "To Do:\n- f\u0336a\u0336i\u0336r\u0336e\u0336 \u0336c\u0336u\u0336i\u0336r\u0336e\u0336
     \u0336l\u0336e\u0336s\u0336 \u0336p\u0336a\u0336t\u0336e\u0336s\u0336 \n- Mettre
-    la vaisselle dans l'\xE9vier\n- Changer les ampules qui clignottent"
+    la vaisselle dans l'\xE9vier\n- Appeler l'\xE9lectricien pour r\xE9parer les
+    clignottements"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
